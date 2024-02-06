@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Aşk Ölçer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .center-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app" class="center-screen" style="display: flex; flex-direction: column;">
+    <h3 @click="changeText('heading')">{{ currentHeaderText }}</h3>
+
+    <button type="button" class="btn btn-success mr-2" :style="{ fontSize: yesButtonSize + 'rem' }"
+            :key="yesButtonSize" @click="yesButton()">Evet</button>
+    <button type=" button" class="btn btn-danger" @click="changeText('noButton')">Hayır sevmiyorum</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            headerText: ['Sevgilim olur musun?',
+                'Bana aşık mısın?',
+                'Beni çok çok seviyor musun?',
+                'Hiç mi sevmiyorsun',
+                'Hiç mi?',],
+            currentHeaderTextIndex: 0,
+            yesButtonSize: 1, // Define yesButtonSize here
+        },
+        methods: {
+            changeText(button) {
+                if (button === 'noButton') {
+                    this.currentHeaderTextIndex = (this.currentHeaderTextIndex + 1) % this.headerText.length;
+                    this.yesButtonSize += 5;
+                }
+            },
+            yesButton() {
+                alert('Bende Seni seviyorum');
+            }
+        },
+        computed: {
+            currentHeaderText() {
+                return this.headerText[this.currentHeaderTextIndex];
+            }
+        }
+    });
+</script>
+</body>
+
+</html>
