@@ -22,7 +22,7 @@
 
     <button type="button" class="btn btn-success mr-2" :style="{ fontSize: yesButtonSize + 'rem' }"
             :key="yesButtonSize" @click="yesButton()">Evet</button>
-    <button type=" button" class="btn btn-danger" @click="changeText('noButton')">Hayır sevmiyorum</button>
+    <button type=" button" class="btn btn-danger" @click="changeText('noButton')">Hayır</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
@@ -31,7 +31,7 @@
         el: '#app',
         data: {
             headerText: ['Sevgilim olur musun?',
-                'Bana aşık mısın?',
+                'Beni seviyor musun?',
                 'Beni çok çok seviyor musun?',
                 'Hiç mi sevmiyorsun',
                 'Hiç mi?',],
@@ -46,7 +46,7 @@
                 }
             },
             yesButton() {
-                alert('Bende Seni seviyorum');
+                alert('Karımı çok seviyorum');
             }
         },
         computed: {
